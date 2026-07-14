@@ -10,6 +10,9 @@ public class Department implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // Construtor: cria o objeto já preenchendo id e name
+
+    public Department() {
+    }
     // @AllArgsConstructor faria isso automaticamente
     public Department(Integer id, String name) {
         this.id = id;
