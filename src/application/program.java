@@ -53,5 +53,33 @@ public class program {
         sellerDao.deleteById(id);
         System.out.println("deleted seller id: " + id);
 
+
+        System.out.println("=== Test 7: department findById ===");
+        DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+        Department dep = departmentDao.findById(2);
+        System.out.println(dep);
+
+        System.out.println("=== Test 8: department findAll ===");
+        List<Department> departments = departmentDao.findAll();
+        for (Department d : departments) {
+            System.out.println(d);
+        }
+
+        System.out.println("=== Test 9: department insert ===");
+        Department newDepartment = new Department(null, "Sports");
+        departmentDao.insert(newDepartment);
+        System.out.println("inserted newDepartment id: " + newDepartment.getId());
+
+        System.out.println("=== Test 10: department update ===");
+        dep = departmentDao.findById(2);
+        dep.setName("Marketing Verde");
+        departmentDao.update(dep);
+        System.out.println("updated department id: " + dep.getId());
+
+        System.out.println("=== Test 11: department delete ===");
+        System.out.println("Enter the id of the department to delete: ");
+        int depId = scan.nextInt();
+        departmentDao.deleteById(depId);
+        System.out.println("deleted department id: " + depId);
     }
 }
